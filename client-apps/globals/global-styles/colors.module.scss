@@ -1,0 +1,23 @@
+// Application Styles || Global Colors
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+$colorRed: red;
+$colorGrey: #bcbcbc;
+$colorDark: #808080;
+$colorWhite: #ffffff;
+$colorBlack: #000000;
+$colorTransparent: #rgba(0, 0, 0, 0);
+
+
+// Application Styles || TypeScript Exports
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// this file must be called xxx.module for Typescript to recognize the Variables =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+:export {
+  colorRed : $colorRed;
+  colorGrey : $colorGrey;
+  colorDark : $colorDark;
+  colorWhite : $colorWhite;
+  colorBlack : $colorBlack;
+  colorTransparent : $colorTransparent;
+}

@@ -1,0 +1,75 @@
+{
+  "name": "vite-template",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "https://github.com/nexrage",
+  "description": "A Vite Template featuring: React - Typescript - Mobx - Formik - MaterialUI - Eslint",
+  "repository": "https://github.com/Vercjames/Vite-Template",
+  "homepage": "https://github.com/Vercjames/Vite-Template",
+  "bugs": "https://github.com/Vercjames/Vite-Template/issues",
+  "main": "index.html",
+  "scripts": {
+    "start": "yarn env && vite --host --port 8000",
+    "start:dev": "yarn env:dev && vite --host --port 8000",
+    "start:prod": "yarn env:prod  && vite --host --port 8000",
+    "start:stage": "yarn env:stage && vite --host --port 8000",
+    "env": "node client-configs/envs/env.js VITE_BUILD=dev",
+    "env:dev": "node client-configs/envs/env.js VITE_BUILD=dev",
+    "env:prod": "node client-configs/envs/env.js VITE_BUILD=prod",
+    "env:stage": "node client-configs/envs/env.js VITE_BUILD=stage",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "eslint --fix \"./client-apps/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint \"./client-apps/**/*.{js,jsx,ts,tsx,json}\"",
+    "preview": "vite preview",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.3",
+    "axios": "^0.27.2",
+    "formik": "^2.2.9",
+    "mobx": "^6.6.1",
+    "mobx-react-lite": "^3.4.0",
+    "mobx-state-tree": "^5.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "sass": "^1.54.5",
+    "uuid": "^9.0.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-syntax-highlighter": "^15.5.5",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "@vitejs/plugin-react": "^2.0.1",
+    "eslint": "8.22.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.7.0-next-e61fd91f5-20220630",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

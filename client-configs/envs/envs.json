@@ -1,0 +1,13 @@
+{
+  "dev": {
+    "VITE_BUILD": "dev"
+  },
+  "stage": {
+    "VITE_BUILD": "stage"
+  },
+  "prod": {
+    "VITE_BUILD": "prod"
+  }
+}
+
+
