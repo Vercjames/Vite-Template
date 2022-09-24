@@ -15,11 +15,11 @@ import "./app-nav-drawer.scss"
 export const AppNavDrawer = ({isDrawer, setDrawer, navItems}: { isDrawer: boolean, setDrawer: (params: boolean) => any, navItems: Array<{name: string, route: string}> }) => {
   const navigate = useNavigate()
   return (
-    <Box onClick={() => setDrawer(!isDrawer)} sx={{ textAlign: 'center' }}>
+    <Box onClick={() => setDrawer(false)} sx={{ textAlign: 'center' }}>
       <Drawer
         variant="temporary"
         open={isDrawer}
-        onClose={() => setDrawer(!isDrawer)}
+        onClose={() => setDrawer(false)}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
         }}
