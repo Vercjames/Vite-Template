@@ -1,6 +1,5 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
-import { observer } from "mobx-react-lite"
 
 
 // Application Screen || App State
@@ -8,6 +7,7 @@ import { observer } from "mobx-react-lite"
 // =====================================================================================================================
 import { MSTContext } from "@MSTContext"
 import { IAuthStore } from "@MSTInterfaces"
+import { observer } from "mobx-react-lite"
 
 
 // Application Navigator || App Imports
@@ -34,6 +34,7 @@ import { AuthRegisterScreen } from "@src/routing-auth/auth-screen-register/regis
 import { PortalLayout } from "@src/routing-portal/portal-layout/portal-layout"
 import { PortalDashboardScreen } from "@src/routing-portal/portal-screen-dashboard/dashboard-screen"
 import { PortalSettingsScreen } from "@src/routing-portal/portal-screen-settings/settings-screen"
+import { PortalProfileScreen } from "@src/routing-portal/portal-screen-profile/profile-screen"
 
 
 // Application Navigator || Define Exports
@@ -45,7 +46,7 @@ export const NavigationRoot = observer(() => {
 
   return (
     <div className="wrapper">
-      {!AuthStore.token ? (
+      {!AuthStore.isAuthenticated ? (
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<AppIndexScreen />} />
@@ -63,6 +64,7 @@ export const NavigationRoot = observer(() => {
         <Routes>
           <Route element={<PortalLayout />}>
             <Route index element={<PortalDashboardScreen />} />
+            <Route path="profile" element={<PortalProfileScreen />} />
             <Route path="settings" element={<PortalSettingsScreen />} />
             <Route path="logout" element={<AuthLogoutScreen />} />
             <Route path={"/*"} element={<PortalDashboardScreen />} />

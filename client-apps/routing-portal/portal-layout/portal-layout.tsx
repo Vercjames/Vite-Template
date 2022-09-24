@@ -15,11 +15,11 @@ import { PortalNavHeader } from "@comps/portal-nav-header/portal-nav-header"
 // =====================================================================================================================
 // =====================================================================================================================
 export const PortalLayout = () => {
-  const drawerWidth = 240;
+  const drawerWidth = 240
   return (
-    <Box className="PortalLayout" sx={{ display: 'flex' }} >
-      <PortalNavHeader drawerWidth={drawerWidth}/>
-      <PortalNavDrawer drawerWidth={drawerWidth}/>
+    <Box className="PortalLayout" sx={{ display: "flex" }}>
+      <PortalNavHeader drawerWidth={drawerWidth} />
+      <PortalNavDrawer drawerWidth={drawerWidth} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Outlet />
       </Box>

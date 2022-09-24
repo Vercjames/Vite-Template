@@ -1,30 +1,23 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
-import { Typography, AppBar, Toolbar } from "@mui/material"
+import { Typography } from "@mui/material"
 
 
 // Application Screen || Define Imports
 // =====================================================================================================================
 // =====================================================================================================================
-import "./portal-nav-header.scss"
+import "./profile-screen.scss"
 
 
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const PortalNavHeader = ({ drawerWidth }: { drawerWidth: number }) => {
-  const navigate = useNavigate()
-
+export const PortalProfileScreen = () => {
   return (
-    <AppBar
-      position="fixed"
-      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
-    >
-      <Toolbar>
-        <Typography variant="h6" noWrap component="div">
-          [VITE TEMPLATE]
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <div className="PortalProfileScreen">
+      <Typography variant="h6">
+        Portal Profile Screen
+      </Typography>
+    </div>
   )
 }
+
