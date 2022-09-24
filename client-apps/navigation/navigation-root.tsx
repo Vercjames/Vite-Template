@@ -33,7 +33,7 @@ import { AuthRegisterScreen } from "@src/routing-auth/auth-screen-register/regis
 // =====================================================================================================================
 import { PortalLayout } from "@src/routing-portal/portal-layout/portal-layout"
 import { PortalDashboardScreen } from "@src/routing-portal/portal-screen-dashboard/dashboard-screen"
-import { PortalSettingScreen } from "@src/routing-portal/portal-screen-settings/settings-screen"
+import { PortalSettingsScreen } from "@src/routing-portal/portal-screen-settings/settings-screen"
 
 
 // Application Navigator || Define Exports
@@ -63,7 +63,7 @@ export const NavigationRoot = observer(() => {
         <Routes>
           <Route element={<PortalLayout />}>
             <Route index element={<PortalDashboardScreen />} />
-            <Route path="settings" element={<PortalSettingScreen />} />
+            <Route path="settings" element={<PortalSettingsScreen />} />
             <Route path="logout" element={<AuthLogoutScreen />} />
             <Route path={"/*"} element={<PortalDashboardScreen />} />
           </Route>

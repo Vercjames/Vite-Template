@@ -1,4 +1,5 @@
 import React from "react"
+import { Typography } from "@mui/material"
 
 
 // Application Screen || Define Imports
@@ -10,10 +11,13 @@ import "./settings-screen.scss"
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const PortalSettingScreen = () => (
-  <div className="PortalSettingScreen">
-    Portal Settings Screen
-  </div>
-)
-
+export const PortalSettingsScreen = () => {
+  return (
+    <div className="PortalSettingsScreen">
+      <Typography variant="h6">
+        Portal Settings Screen
+      </Typography>
+    </div>
+  )
+}
 
