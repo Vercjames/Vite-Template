@@ -1,19 +1,28 @@
 import React from "react"
+import { Button, Typography } from "@mui/material"
 
 
 // Application Screen || Define Imports
 // =====================================================================================================================
 // =====================================================================================================================
 import "./register-screen.scss"
+import { MSTContext } from "@MSTContext"
+import { IAuthStore } from "@schemas/schema-auth/auth-store"
 
 
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const AuthRegisterScreen = () => (
-  <div className="AuthRegisterScreen">
-    Register Screen
-  </div>
-)
+export const AuthRegisterScreen = () => {
+  const AuthStore: IAuthStore = MSTContext().AuthStore
+
+  return (
+    <div className="AutLoginScreen">
+      <Typography variant="h6">
+        Register Screen
+      </Typography>
+    </div>
+  )
+}
 
 

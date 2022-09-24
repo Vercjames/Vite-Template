@@ -64,6 +64,7 @@ export const NavigationRoot = observer(() => {
           <Route element={<PortalLayout />}>
             <Route index element={<PortalDashboardScreen />} />
             <Route path="settings" element={<PortalSettingScreen />} />
+            <Route path="logout" element={<AuthLogoutScreen />} />
             <Route path={"/*"} element={<PortalDashboardScreen />} />
           </Route>
         </Routes>

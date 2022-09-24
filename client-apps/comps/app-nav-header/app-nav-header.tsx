@@ -1,8 +1,16 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { Box, AppBar, Typography, Toolbar, Button, IconButton, Popper } from "@mui/material"
+import { Box, AppBar, Typography, Toolbar, Button, IconButton } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import MoreIcon from "@mui/icons-material/MoreVert"
+import { observer } from "mobx-react-lite"
+
+
+// Application Screen || App State
+// =====================================================================================================================
+// =====================================================================================================================
+import { MSTContext } from "@MSTContext"
+import { IAuthStore } from "@schemas/schema-auth/auth-store"
 
 
 // Application Screen || Define Imports
@@ -13,10 +21,12 @@ import { AppNavDrawer } from "@comps/app-nav-drawer/app-nav-drawer"
 import { AppNavPopper } from "@comps/app-nav-popper/app-nav-popper"
 
 
+
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const AppNavHeader = () => {
+export const AppNavHeader = observer(() => {
+  const AuthStore: IAuthStore = MSTContext().AuthStore
   const [isDrawer, setDrawer] = React.useState<boolean>(false)
   const [isPopper, setPopper] = React.useState<boolean>(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -26,15 +36,24 @@ export const AppNavHeader = () => {
     setPopper(!isPopper)
   }
 
-  const navItems: Array<{name: string, route: string}> = [
+  const appNavItems: Array<{name: string, route: string}> = [
     { name: "Home", route: "/" },
     { name: "About", route: "/about" },
     { name: "Contact", route: "/contact" },
   ]
 
-  const popperItems: Array<{name: string, route: string}> = [
+  const appPopperItems: Array<{name: string, route: string}> = [
     { name: "Login", route: "/login" },
     { name: "Register", route: "/register" },
+  ]
+
+  const portalNavItems: Array<{name: string, route: string}> = [
+    { name: "Dash", route: "/" },
+    { name: "Settings", route: "/settings" },
+  ]
+
+  const portalPopperItems: Array<{name: string, route: string}> = [
+    { name: "logout", route: "/logout" },
   ]
 
   return (
@@ -58,13 +77,30 @@ export const AppNavHeader = () => {
             Vite Template
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item: {name: string, route: string}) => (
-              <Link to={item.route} key={item.name} className="nav-link">
-                <Button sx={{ color: "#fff" }}>
-                  {item.name}
-                </Button>
-              </Link>
-            ))}
+
+            {AuthStore.token ? (
+              <>
+                {portalNavItems.map((item: {name: string, route: string}) => (
+                  <Link to={item.route} key={item.name} className="nav-link">
+                    <Button sx={{ color: "#fff" }}>
+                      {item.name}
+                    </Button>
+                  </Link>
+                ))}
+              </>
+            ) : (
+              <>
+                {appNavItems.map((item: {name: string, route: string}) => (
+                  <Link to={item.route} key={item.name} className="nav-link">
+                    <Button sx={{ color: "#fff" }}>
+                      {item.name}
+                    </Button>
+                  </Link>
+                ))}
+              </>
+            )}
+
+
           </Box>
           <IconButton
             edge="end"
@@ -75,13 +111,13 @@ export const AppNavHeader = () => {
           >
             <MoreIcon />
           </IconButton>
-          <AppNavPopper isPopper={isPopper} togglePopper={togglePopper} anchorEl={anchorEl} popperItems={popperItems} />
+          <AppNavPopper isPopper={isPopper} togglePopper={togglePopper} anchorEl={anchorEl} popperItems={AuthStore.token ? portalPopperItems : appPopperItems} />
         </Toolbar>
       </AppBar>
 
       <Box component="nav">
-        <AppNavDrawer isDrawer={isDrawer} setDrawer={setDrawer} navItems={navItems} />
+        <AppNavDrawer isDrawer={isDrawer} setDrawer={setDrawer} navItems={AuthStore.token ? portalNavItems : appNavItems} />
       </Box>
     </Box>
   )
-}
+})
