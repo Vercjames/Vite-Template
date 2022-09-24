@@ -2,6 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import { Typography, AppBar, Toolbar, IconButton, Avatar, Tooltip, Menu, MenuItem } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 
 
 // Application Screen || Define Imports
@@ -13,7 +14,7 @@ import "./portal-nav-header.scss"
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const PortalNavHeader = ({ drawerWidth }: { drawerWidth: number }) => {
+export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWidth: number, isMobile: boolean, setMobile: (params: boolean) => any }) => {
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
@@ -30,6 +31,7 @@ export const PortalNavHeader = ({ drawerWidth }: { drawerWidth: number }) => {
     <AppBar
       component="nav"
       position="fixed"
+      className="PortalNavHeader"
       elevation={0}
       sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
     >
@@ -40,8 +42,10 @@ export const PortalNavHeader = ({ drawerWidth }: { drawerWidth: number }) => {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 2 }}
+          onClick={() => setMobile(!isMobile)}
         >
-          <MenuIcon />
+          {isMobile ? <MenuIcon /> : <MenuOpenIcon />}
+
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           [VITE TEMPLATE]

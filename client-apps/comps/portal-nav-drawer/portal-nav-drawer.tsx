@@ -23,7 +23,7 @@ import "./portal-nav-drawer.scss"
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
+export const PortalNavDrawer = ({ drawerWidth, isMobile }: { drawerWidth: number, isMobile: boolean }) => {
   const AuthStore: IAuthStore = MSTContext().AuthStore
   const navigate = useNavigate()
   const { palette } = useTheme()
@@ -33,6 +33,10 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
     { name: "Profile", icon: <AccountBoxIcon />, route: "/profile" },
     { name: "Settings", icon: <SettingsIcon />, route: "/settings" },
   ]
+
+  const isActive = (route: string) => {
+    return location.pathname.match(`^${route}$`) ? palette.primary.main : palette.text.secondary
+  }
 
   return (
     <Drawer
@@ -56,13 +60,14 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
       <List>
         {portalNavItems.map((item: { name: string, icon: ReactElement, route: string }, index: number) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton onClick={() => navigate(item.route)}>
+            {/* The minHeight property is to prevent shrinking since the ListItemText is larger than the ListItemIcon */}
+            <ListItemButton onClick={() => navigate(item.route)} sx={{ minHeight: 48 }}>
               {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
-              <ListItemIcon style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit") }}>
+              <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : 'auto', color: isActive(item.route) }}>
                 {item.icon}
               </ListItemIcon>
               {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
-              <ListItemText style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit") }}>
+              <ListItemText style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : palette.text.secondary) }} sx={{ display: isMobile ? "none" : "static" }}>
                 {item.name}
               </ListItemText>
             </ListItemButton>
@@ -73,12 +78,15 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
       <Box style={{ marginTop: "auto" }}>
         <Divider />
         <List>
-          <ListItem key="logout" disablePadding>
-            <ListItemButton onClick={() => AuthStore.logout()}>
-              <ListItemIcon>
-                <LogoutIcon />
+          <ListItem disablePadding>
+            {/* The minHeight property is to prevent shrinking since the ListItemText is larger than the ListItemIcon */}
+            <ListItemButton onClick={() => AuthStore.logout()} sx={{ minHeight: 48 }}>
+              <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : 'auto' }}>
+                <SettingsIcon />
               </ListItemIcon>
-              <ListItemText primary="logout" />
+              <ListItemText sx={{ display: isMobile ? "none" : "static"  }}>
+                Logout
+              </ListItemText>
             </ListItemButton>
           </ListItem>
         </List>

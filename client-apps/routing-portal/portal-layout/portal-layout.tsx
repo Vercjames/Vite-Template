@@ -15,12 +15,18 @@ import { PortalNavHeader } from "@comps/portal-nav-header/portal-nav-header"
 // =====================================================================================================================
 // =====================================================================================================================
 export const PortalLayout = () => {
-  const drawerWidth = 240
+  const [isMobile, setMobile] = React.useState<boolean>(false)
+  const [drawerWidth, setDrawerWidth] = React.useState<number>(240)
+
+  const handleMobile = () => {
+    isMobile ? setDrawerWidth(240) : setDrawerWidth(60)
+    setMobile(!isMobile)
+  }
 
   return (
     <Box className="PortalLayout" sx={{ display: "flex" }}>
-      <PortalNavHeader drawerWidth={drawerWidth} />
-      <PortalNavDrawer drawerWidth={drawerWidth} />
+      <PortalNavHeader drawerWidth={drawerWidth} isMobile={isMobile} setMobile={handleMobile}/>
+      <PortalNavDrawer drawerWidth={drawerWidth} isMobile={isMobile} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* This is a cute trick provided my the Material UI. */}
         {/* A blank <Toolbar /> can be used to avoid another active toolbar */}
