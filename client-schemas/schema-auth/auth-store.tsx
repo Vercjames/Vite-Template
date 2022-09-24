@@ -7,7 +7,7 @@ import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 // =====================================================================================================================
 // =====================================================================================================================
 export const AuthStore = types.model({
-  token: types.maybe(types.string),
+  token: types.optional(types.maybe(types.string), "RAWR"),
 }).actions((self: any) => ({
   login() {
     // md5 is a hashing pattern used for passwords. In practise we could hash our password in this method before sending it to the server.

@@ -25,9 +25,10 @@ export default defineConfig(({ command, mode }: any) => {
         "@MSTRoot": path.resolve(__dirname, "./client-schemas/mobx-tree/mobx-root.tsx"),
         "@MSTContext": path.resolve(__dirname, "./client-schemas/mobx-tree/mobx-context.tsx"),
         "@MSTInterfaces": path.resolve(__dirname, "./client-schemas/mobx-tree/mobx-interfaces.tsx"),
-        "@comps": path.resolve(__dirname, "./client-apps/comps"),
+        "@styles": path.resolve(__dirname, "./client-apps/globals/global-styles"),
         "@globals": path.resolve(__dirname, "./client-apps/globals"),
         "@helpers": path.resolve(__dirname, "./client-apps/helpers"),
+        "@comps": path.resolve(__dirname, "./client-apps/comps"),
       },
     },
     define: {

@@ -7,7 +7,7 @@ import { Button, Typography } from "@mui/material"
 // =====================================================================================================================
 import "./register-screen.scss"
 import { MSTContext } from "@MSTContext"
-import { IAuthStore } from "@schemas/schema-auth/auth-store"
+import { IAuthStore } from "@MSTInterfaces"
 
 
 // Application Screen || Define Exports

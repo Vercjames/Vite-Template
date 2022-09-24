@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite"
 // =====================================================================================================================
 // =====================================================================================================================
 import { MSTContext } from "@MSTContext"
-import { IAuthStore } from "@schemas/schema-auth/auth-store"
+import { IAuthStore } from "@MSTInterfaces"
 
 
 // Application Navigator || App Imports

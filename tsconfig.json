@@ -33,9 +33,10 @@
       "@MSTRoot": ["client-schemas/mobx-tree/mobx-root.tsx"],
       "@MSTContext": ["client-schemas/mobx-tree/mobx-context.tsx"],
       "@MSTInterfaces": ["client-schemas/mobx-tree/mobx-interfaces.tsx"],
-      "@comps/*": ["client-apps/comps/*"],
+      "@styles/*": ["client-apps/globals/global-styles/*"],
       "@globals/*": ["client-apps/globals/*"],
-      "@helpers/*": ["client-apps/helpers/*"]
+      "@helpers/*": ["client-apps/helpers/*"],
+      "@comps/*": ["client-apps/comps/*"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */

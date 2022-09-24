@@ -6,10 +6,10 @@ import { TaskModel } from "./task-model"
 // =====================================================================================================================
 // =====================================================================================================================
 export const TaskStore = types.model({
-  taskList: types.optional(types.array(TaskModel), []),
+  TaskCollection: types.optional(types.array(TaskModel), []),
 }).actions((self: any) => ({
   addTask(title: string, description: string) {
-    self.taskList.push({ title, description })
+    self.TaskCollection.push({ title, description })
   },
 }))
 

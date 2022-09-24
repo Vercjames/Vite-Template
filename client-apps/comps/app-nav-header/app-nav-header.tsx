@@ -10,7 +10,7 @@ import { observer } from "mobx-react-lite"
 // =====================================================================================================================
 // =====================================================================================================================
 import { MSTContext } from "@MSTContext"
-import { IAuthStore } from "@schemas/schema-auth/auth-store"
+import { IAuthStore } from "@MSTInterfaces"
 
 
 // Application Screen || Define Imports
@@ -74,7 +74,7 @@ export const AppNavHeader = observer(() => {
             component="div"
             sx={{ py: 2, flexGrow: 1, display: { xs: "block" } }}
           >
-            Vite Template
+            [VITE TEMPLATE]
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
 

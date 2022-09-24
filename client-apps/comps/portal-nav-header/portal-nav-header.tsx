@@ -1,32 +1,29 @@
 import React from "react"
-import { Button, Typography } from "@mui/material"
+import { useNavigate } from "react-router-dom"
+import { Typography, AppBar, Toolbar } from "@mui/material"
 
 
 // Application Screen || Define Imports
 // =====================================================================================================================
 // =====================================================================================================================
-import "./logout-screen.scss"
-import { MSTContext } from "@MSTContext"
-import { IAuthStore } from "@MSTInterfaces"
+import "./portal-nav-header.scss"
 
 
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
-export const AuthLogoutScreen = () => {
-  const AuthStore: IAuthStore = MSTContext().AuthStore
-
-  React.useEffect(() => {
-    AuthStore.logout()
-  }, [])
-
+export const PortalNavHeader = ({ drawerWidth }: { drawerWidth: number }) => {
+  const navigate = useNavigate()
   return (
-    <div className="AutLoginScreen">
-      <Typography variant="h6">
-        You have been logged out Successfully
-      </Typography>
-    </div>
+    <AppBar
+      position="fixed"
+      sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
+    >
+      <Toolbar>
+        <Typography variant="h6" noWrap component="div">
+        [VITE TEMPLATE]
+        </Typography>
+      </Toolbar>
+    </AppBar>
   )
 }
-
-
