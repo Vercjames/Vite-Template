@@ -1,10 +1,10 @@
 import React, { ReactElement } from "react"
 import { useNavigate } from "react-router-dom"
-import { Box, Drawer, Toolbar, Divider, List, ListItem, ListItemButton, ListItemText, ListItemIcon, Icon } from "@mui/material"
-import LogoutIcon from '@mui/icons-material/Logout'
-import DashboardIcon from '@mui/icons-material/Dashboard'
-import SettingsIcon from '@mui/icons-material/Settings'
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { Box, Drawer, Toolbar, Divider, List, ListItem, ListItemButton, ListItemText, ListItemIcon } from "@mui/material"
+import LogoutIcon from "@mui/icons-material/Logout"
+import DashboardIcon from "@mui/icons-material/Dashboard"
+import SettingsIcon from "@mui/icons-material/Settings"
+import AccountBoxIcon from "@mui/icons-material/AccountBox"
 
 
 // Application Screen || App State
@@ -12,14 +12,12 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 // =====================================================================================================================
 import { MSTContext } from "@MSTContext"
 import { IAuthStore } from "@MSTInterfaces"
-import { observer } from "mobx-react-lite"
 
 
 // Application Screen || Define Imports
 // =====================================================================================================================
 // =====================================================================================================================
 import "./portal-nav-drawer.scss"
-
 
 
 // Application Screen || Define Exports
@@ -32,7 +30,7 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
   const portalNavItems: Array<{name: string, icon: ReactElement, route: string}> = [
     { name: "Dash", icon: <DashboardIcon />, route: "/" },
     { name: "Profile", icon: <AccountBoxIcon />, route: "/profile" },
-    { name: "Settings", icon: <SettingsIcon/>, route: "/settings" },
+    { name: "Settings", icon: <SettingsIcon />, route: "/settings" },
   ]
 
   return (
@@ -66,14 +64,14 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
       </List>
 
       <Box style={{ marginTop: "auto" }}>
-        <Divider  />
+        <Divider />
         <List>
-          <ListItem key={"logout"} disablePadding>
+          <ListItem key="logout" disablePadding>
             <ListItemButton onClick={() => AuthStore.logout()}>
               <ListItemIcon>
                 <LogoutIcon />
               </ListItemIcon>
-              <ListItemText primary={"logout"} />
+              <ListItemText primary="logout" />
             </ListItemButton>
           </ListItem>
         </List>
