@@ -1,6 +1,6 @@
 {
   "name": "vite-template",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "https://github.com/nexrage",
   "description": "A Vite Template featuring: React - Typescript - Mobx - Formik - MaterialUI - Eslint",
