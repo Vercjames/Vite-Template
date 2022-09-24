@@ -63,7 +63,7 @@ export const PortalNavDrawer = ({ drawerWidth, isMobile }: { drawerWidth: number
             {/* The minHeight property is to prevent shrinking since the ListItemText is larger than the ListItemIcon */}
             <ListItemButton onClick={() => navigate(item.route)} sx={{ minHeight: 48 }}>
               {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
-              <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : 'auto', color: isActive(item.route) }}>
+              <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : "auto", color: isActive(item.route) }}>
                 {item.icon}
               </ListItemIcon>
               {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
@@ -81,10 +81,10 @@ export const PortalNavDrawer = ({ drawerWidth, isMobile }: { drawerWidth: number
           <ListItem disablePadding>
             {/* The minHeight property is to prevent shrinking since the ListItemText is larger than the ListItemIcon */}
             <ListItemButton onClick={() => AuthStore.logout()} sx={{ minHeight: 48 }}>
-              <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : 'auto' }}>
-                <SettingsIcon />
+              <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : "auto" }}>
+                <LogoutIcon />
               </ListItemIcon>
-              <ListItemText sx={{ display: isMobile ? "none" : "static"  }}>
+              <ListItemText sx={{ display: isMobile ? "none" : "static" }}>
                 Logout
               </ListItemText>
             </ListItemButton>

@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "react-router-dom"
-import { Box, AppBar, Typography, Toolbar, Button, IconButton } from "@mui/material"
+import { Link, useNavigate } from "react-router-dom"
+import { Box, AppBar, Typography, Toolbar, Button, IconButton, Tooltip, Avatar, Menu, MenuItem } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import MoreIcon from "@mui/icons-material/MoreVert"
 import { observer } from "mobx-react-lite"
@@ -11,20 +11,22 @@ import { observer } from "mobx-react-lite"
 // =====================================================================================================================
 import "./app-nav-header.scss"
 import { AppNavDrawer } from "@comps/app-nav-drawer/app-nav-drawer"
-import { AppNavPopper } from "@comps/app-nav-popper/app-nav-popper"
 
 
 // Application Screen || Define Exports
 // =====================================================================================================================
 // =====================================================================================================================
 export const AppNavHeader = observer(() => {
+  const navigate = useNavigate()
   const [isDrawer, setDrawer] = React.useState<boolean>(false)
-  const [isPopper, setPopper] = React.useState<boolean>(false)
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
-  const togglePopper = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget)
-    setPopper(!isPopper)
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
   }
 
   const navItems: Array<{name: string, route: string}> = [
@@ -51,11 +53,7 @@ export const AppNavHeader = observer(() => {
           >
             <MenuIcon sx={{ fontSize: 26 }} />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ py: 2, flexGrow: 1, display: { xs: "block" } }}
-          >
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             [VITE TEMPLATE]
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
@@ -67,16 +65,33 @@ export const AppNavHeader = observer(() => {
               </Link>
             ))}
           </Box>
-          <IconButton
-            edge="end"
-            size="large"
-            color="inherit"
-            aria-label="display more actions"
-            onClick={togglePopper}
-          >
-            <MoreIcon />
-          </IconButton>
-          <AppNavPopper isPopper={isPopper} togglePopper={togglePopper} anchorEl={anchorEl} popperItems={popperItems} />
+          <Box>
+            <Tooltip title="Authentication">
+              <IconButton color="inherit" onClick={handleMenu}>
+                <MoreIcon />
+              </IconButton>
+            </Tooltip>
+
+            <Menu
+              sx={{ mt: "45px" }}
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              keepMounted
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+            >
+              {popperItems.map((item: {name: string, route: string}) => (
+                <MenuItem key={item.name} onClick={() => { navigate(item.route); handleClose() }}>{item.name}</MenuItem>
+              ))}
+            </Menu>
+          </Box>
         </Toolbar>
       </AppBar>
 

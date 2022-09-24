@@ -18,7 +18,7 @@ export const AuthLogoutScreen = () => {
 
   React.useEffect(() => {
     AuthStore.logout()
-  }, [])
+  }, [AuthStore])
 
   return (
     <div className="AutLoginScreen">

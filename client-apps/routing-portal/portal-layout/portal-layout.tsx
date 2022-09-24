@@ -19,13 +19,13 @@ export const PortalLayout = () => {
   const [drawerWidth, setDrawerWidth] = React.useState<number>(240)
 
   const handleMobile = () => {
-    isMobile ? setDrawerWidth(240) : setDrawerWidth(60)
+    setDrawerWidth(isMobile ? 240 : 60)
     setMobile(!isMobile)
   }
 
   return (
     <Box className="PortalLayout" sx={{ display: "flex" }}>
-      <PortalNavHeader drawerWidth={drawerWidth} isMobile={isMobile} setMobile={handleMobile}/>
+      <PortalNavHeader drawerWidth={drawerWidth} isMobile={isMobile} setMobile={handleMobile} />
       <PortalNavDrawer drawerWidth={drawerWidth} isMobile={isMobile} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* This is a cute trick provided my the Material UI. */}

@@ -1,8 +1,8 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { Typography, AppBar, Toolbar, IconButton, Avatar, Tooltip, Menu, MenuItem } from "@mui/material"
+import { Box, Typography, AppBar, Toolbar, IconButton, Avatar, Tooltip, Menu, MenuItem } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
-import MenuOpenIcon from '@mui/icons-material/MenuOpen'
+import MenuOpenIcon from "@mui/icons-material/MenuOpen"
 
 
 // Application Screen || Define Imports
@@ -18,6 +18,10 @@ export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWi
   const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
+  const popperItems: Array<{name: string, route: string}> = [
+    { name: "Profile", route: "/profile" },
+    { name: "Settings", route: "/settings" },
+  ]
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
@@ -50,9 +54,9 @@ export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWi
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           [VITE TEMPLATE]
         </Typography>
-        <div>
+        <Box>
           <Tooltip title="Open settings">
-            <IconButton onClick={handleMenu} sx={{ p: 0 }}>
+            <IconButton onClick={handleMenu}>
               <Avatar alt="VITE" src="https://via.placeholder.com/xxx" />
             </IconButton>
           </Tooltip>
@@ -72,10 +76,11 @@ export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWi
               horizontal: "right",
             }}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            {popperItems.map((item: {name: string, route: string}) => (
+              <MenuItem key={item.name} onClick={() => { navigate(item.route); handleClose() }}>{item.name}</MenuItem>
+            ))}
           </Menu>
-        </div>
+        </Box>
       </Toolbar>
     </AppBar>
   )
