@@ -50,16 +50,21 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
       <Toolbar sx={{ justifyContent: "center" }}>
         <img src="/vite.svg" height="25px" className="logo" alt="Vite logo" />
       </Toolbar>
+
       <Divider />
+
       <List>
         {portalNavItems.map((item: { name: string, icon: ReactElement, route: string }, index: number) => (
           <ListItem key={index} disablePadding>
             <ListItemButton onClick={() => navigate(item.route)}>
-              <ListItemIcon>
+              {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
+              <ListItemIcon style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit") }}>
                 {item.icon}
               </ListItemIcon>
               {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
-              <ListItemText primary={item.name} style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit") }} />
+              <ListItemText style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit") }}>
+                {item.name}
+              </ListItemText>
             </ListItemButton>
           </ListItem>
         ))}
