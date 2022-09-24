@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 import { useNavigate } from "react-router-dom"
-import { Box, Drawer, Toolbar, Divider, List, ListItem, ListItemButton, ListItemText, ListItemIcon } from "@mui/material"
+import { useTheme, Box, Drawer, Toolbar, Divider, List, ListItem, ListItemButton, ListItemText, ListItemIcon } from "@mui/material"
 import LogoutIcon from "@mui/icons-material/Logout"
 import DashboardIcon from "@mui/icons-material/Dashboard"
 import SettingsIcon from "@mui/icons-material/Settings"
@@ -26,6 +26,7 @@ import "./portal-nav-drawer.scss"
 export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
   const AuthStore: IAuthStore = MSTContext().AuthStore
   const navigate = useNavigate()
+  const { palette } = useTheme()
 
   const portalNavItems: Array<{name: string, icon: ReactElement, route: string}> = [
     { name: "Dash", icon: <DashboardIcon />, route: "/" },
@@ -52,15 +53,17 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
       <Divider />
       <List>
         {portalNavItems.map((item: { name: string, icon: ReactElement, route: string }, index: number) => (
-          <ListItem key={index} disablePadding>
+          <ListItem key={index} disablePadding >
             <ListItemButton onClick={() => navigate(item.route)}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
-              <ListItemText primary={item.name} />
+              {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
+              <ListItemText primary={item.name} style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit" ) }}/>
             </ListItemButton>
           </ListItem>
-        ))}
+        )
+        )}
       </List>
 
       <Box style={{ marginTop: "auto" }}>
