@@ -40,7 +40,7 @@ export const PortalDashboardScreen = observer(() => {
         </Grid>
       </Grid>
 
-      <Card variant="outlined" sx={{ p: 2, mt: 2 }} style={{ borderRadius: 4 }}>
+      <Card variant="outlined" sx={{ p: 2, mt: 2 }}>
         {TaskStore.TaskCollection.length <= 0 ? (
           <Typography style={{ textAlign: "center" }}>
             It appears no tasks have been added! please add one
