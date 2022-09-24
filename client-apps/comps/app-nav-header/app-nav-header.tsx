@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { Box, AppBar, Typography, Toolbar, Button, IconButton, Popper } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
-import MoreIcon from '@mui/icons-material/MoreVert';
+import MoreIcon from "@mui/icons-material/MoreVert"
 
 
 // Application Screen || Define Imports
@@ -19,26 +19,26 @@ import { AppNavPopper } from "@comps/app-nav-popper/app-nav-popper"
 export const AppNavHeader = () => {
   const [isDrawer, setDrawer] = React.useState<boolean>(false)
   const [isPopper, setPopper] = React.useState<boolean>(false)
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
   const togglePopper = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+    setAnchorEl(anchorEl ? null : event.currentTarget)
     setPopper(!isPopper)
   }
 
   const navItems: Array<{name: string, route: string}> = [
-    {name: "Home", route: "/"},
-    {name: "About", route: "/about"},
-    {name: "Contact", route: "/contact"},
+    { name: "Home", route: "/" },
+    { name: "About", route: "/about" },
+    { name: "Contact", route: "/contact" },
   ]
 
   const popperItems: Array<{name: string, route: string}> = [
-    {name: "Login", route: "/login"},
-    {name: "Register", route: "/register"},
+    { name: "Login", route: "/login" },
+    { name: "Register", route: "/register" },
   ]
 
   return (
-    <Box className="AppNavHeader" sx={{ display: 'flex' }}>
+    <Box className="AppNavHeader" sx={{ display: "flex" }}>
       <AppBar component="nav">
         <Toolbar>
           <IconButton
@@ -48,7 +48,7 @@ export const AppNavHeader = () => {
             onClick={() => setDrawer(!isDrawer)}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <MenuIcon sx={{ fontSize: 26 }}/>
+            <MenuIcon sx={{ fontSize: 26 }} />
           </IconButton>
           <Typography
             variant="h6"

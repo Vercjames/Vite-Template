@@ -12,7 +12,7 @@ import "./app-nav-popper.scss"
 // Application Screen || Define Exports
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-export const AppNavPopper = ({ isPopper, togglePopper, anchorEl, popperItems} : {isPopper: boolean, togglePopper: any, anchorEl: null | HTMLElement, popperItems: Array<{name: string, route: string}> }) => {
+export const AppNavPopper = ({ isPopper, togglePopper, anchorEl, popperItems } : {isPopper: boolean, togglePopper: any, anchorEl: null | HTMLElement, popperItems: Array<{name: string, route: string}> }) => {
   const navigate = useNavigate()
   return anchorEl && (
     <Popper open={isPopper} anchorEl={anchorEl} placement="bottom-end" transition disablePortal>
@@ -26,7 +26,7 @@ export const AppNavPopper = ({ isPopper, togglePopper, anchorEl, popperItems} : 
                 aria-labelledby="composition-button"
               >
                 {popperItems.map((item: {name: string, route: string}) => (
-                  <MenuItem onClick={() => {navigate(item.route); togglePopper()}}>{item.name}</MenuItem>
+                  <MenuItem onClick={() => { navigate(item.route); togglePopper() }}>{item.name}</MenuItem>
                 ))}
               </MenuList>
             </ClickAwayListener>
