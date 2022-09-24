@@ -17,6 +17,7 @@ export const PortalNavHeader = ({ drawerWidth }: { drawerWidth: number }) => {
 
   return (
     <AppBar
+      component="nav"
       position="fixed"
       sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
     >
