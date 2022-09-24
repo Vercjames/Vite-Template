@@ -26,7 +26,7 @@ export const AppNavPopper = ({ isPopper, togglePopper, anchorEl, popperItems } :
                 aria-labelledby="composition-button"
               >
                 {popperItems.map((item: {name: string, route: string}) => (
-                  <MenuItem onClick={() => { navigate(item.route); togglePopper() }}>{item.name}</MenuItem>
+                  <MenuItem key={item.name} onClick={() => { navigate(item.route); togglePopper() }}>{item.name}</MenuItem>
                 ))}
               </MenuList>
             </ClickAwayListener>

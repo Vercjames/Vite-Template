@@ -14,7 +14,6 @@ import { AuthStore } from "../schema-auth/auth-store"
 export const MSTRoot = types.model({
   AuthStore: types.optional(AuthStore, {}),
   TaskStore: types.optional(TaskStore, {}),
-
 }).actions((self: any) => ({
   logRootStore() {
     console.log(self)

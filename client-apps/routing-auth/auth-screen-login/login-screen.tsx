@@ -14,18 +14,19 @@ import { IAuthStore } from "@schemas/schema-auth/auth-store"
 // =====================================================================================================================
 // =====================================================================================================================
 export const AuthLoginScreen = () => {
- const AuthStore: IAuthStore = MSTContext().AuthStore
+  const AuthStore: IAuthStore = MSTContext().AuthStore
 
   return (
     <div className="AutLoginScreen">
-      <Typography variant={"h6"}>
+      <Typography variant="h6">
         Login Screen
       </Typography>
 
-      <Button variant="contained" onClick={() => AuthStore.login()} >
+      <Button variant="contained" onClick={() => AuthStore.login()}>
         Login
       </Button>
     </div>
-  )}
+  )
+}
 
 

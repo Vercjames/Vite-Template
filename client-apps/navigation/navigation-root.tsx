@@ -1,5 +1,13 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
+import { observer } from "mobx-react-lite"
+
+
+// Application Screen || App State
+// =====================================================================================================================
+// =====================================================================================================================
+import { MSTContext } from "@MSTContext"
+import { IAuthStore } from "@schemas/schema-auth/auth-store"
 
 
 // Application Navigator || App Imports
@@ -14,7 +22,6 @@ import { AppContactScreen } from "@src/routing-app/app-screen-contact/contact-sc
 // Application Navigator || Auth Imports
 // =====================================================================================================================
 // =====================================================================================================================
-// =====================================================================================================================
 import { AuthLayout } from "@src/routing-auth/auth-layout/auth-layout"
 import { AuthLoginScreen } from "@src/routing-auth/auth-screen-login/login-screen"
 import { AuthLogoutScreen } from "@src/routing-auth/auth-screen-logout/logout-screen"
@@ -27,18 +34,18 @@ import { AuthRegisterScreen } from "@src/routing-auth/auth-screen-register/regis
 import { PortalLayout } from "@src/routing-portal/portal-layout/portal-layout"
 import { PortalDashboardScreen } from "@src/routing-portal/portal-screen-dashboard/dashboard-screen"
 import { PortalSettingScreen } from "@src/routing-portal/portal-screen-settings/settings-screen"
-import { observer } from "mobx-react-lite"
 
 
 // Application Navigator || Define Exports
 // =====================================================================================================================
+// =====================================================================================================================
 // The Mobx `observer()` is used to reload the authentication wrapper for the 2 route types ============================
 export const NavigationRoot = observer(() => {
-  const [isAuthenticated, setAuthenticated] = React.useState<boolean>(false)
+  const AuthStore: IAuthStore = MSTContext().AuthStore
 
   return (
     <div className="wrapper">
-      {!isAuthenticated ? (
+      {!AuthStore.token ? (
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<AppIndexScreen />} />
