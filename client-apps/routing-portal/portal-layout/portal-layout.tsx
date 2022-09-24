@@ -22,7 +22,7 @@ export const PortalLayout = () => {
       <PortalNavHeader drawerWidth={drawerWidth} />
       <PortalNavDrawer drawerWidth={drawerWidth} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {/* This is a cute trick provided my the Material UI.*/}
+        {/* This is a cute trick provided my the Material UI. */}
         {/* A blank <Toolbar /> can be used to avoid another active toolbar */}
         <Toolbar />
 

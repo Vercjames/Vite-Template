@@ -14,7 +14,7 @@ import "./profile-screen.scss"
 export const PortalProfileScreen = () => {
   return (
     <div className="PortalProfileScreen">
-      <Typography variant="h6">
+      <Typography variant="h6" sx={{ mb: 2 }}>
         Profile Screen
       </Typography>
 

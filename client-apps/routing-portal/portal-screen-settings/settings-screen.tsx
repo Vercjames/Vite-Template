@@ -14,7 +14,7 @@ import "./settings-screen.scss"
 export const PortalSettingsScreen = () => {
   return (
     <div className="PortalSettingsScreen">
-      <Typography variant="h6">
+      <Typography variant="h6" sx={{ mb: 2 }}>
         Settings Screen
       </Typography>
 

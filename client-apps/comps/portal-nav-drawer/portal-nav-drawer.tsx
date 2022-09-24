@@ -53,17 +53,16 @@ export const PortalNavDrawer = ({ drawerWidth }: { drawerWidth: number }) => {
       <Divider />
       <List>
         {portalNavItems.map((item: { name: string, icon: ReactElement, route: string }, index: number) => (
-          <ListItem key={index} disablePadding >
+          <ListItem key={index} disablePadding>
             <ListItemButton onClick={() => navigate(item.route)}>
               <ListItemIcon>
                 {item.icon}
               </ListItemIcon>
               {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
-              <ListItemText primary={item.name} style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit" ) }}/>
+              <ListItemText primary={item.name} style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : "inherit") }} />
             </ListItemButton>
           </ListItem>
-        )
-        )}
+        ))}
       </List>
 
       <Box style={{ marginTop: "auto" }}>
