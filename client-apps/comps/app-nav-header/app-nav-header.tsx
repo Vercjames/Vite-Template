@@ -54,7 +54,7 @@ export const AppNavHeader = observer(() => {
             <MenuIcon sx={{ fontSize: 26 }} />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            [VITE TEMPLATE]
+            VITE TEMPLATE
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item: {name: string, route: string}) => (

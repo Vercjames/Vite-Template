@@ -52,7 +52,7 @@ export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWi
 
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          [VITE TEMPLATE]
+          VITE TEMPLATE
         </Typography>
         <Box>
           <Tooltip title="Open settings">

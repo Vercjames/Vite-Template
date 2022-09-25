@@ -29,7 +29,7 @@ export const AppNavDrawer = ({ isDrawer, setDrawer, navItems }: { isDrawer: bool
         }}
       >
         <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
-          [VITE TEMPLATE]
+          VITE TEMPLATE
         </Typography>
         <Divider />
         <List>
