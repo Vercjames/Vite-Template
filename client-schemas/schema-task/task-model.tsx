@@ -5,11 +5,15 @@ import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 // =====================================================================================================================
 // =====================================================================================================================
 export const TaskModel = types.model({
-  title: types.optional(types.string, ""),
+  id: types.number,
+  title: types.string,
   description: types.optional(types.string, ""),
 }).actions((self: any) => ({
-  changeName(title: string) {
+  changeTitle(title: string) {
     self.title = title
+  },
+  changeDescription(description: string) {
+    self.description = description
   },
 }))
 
