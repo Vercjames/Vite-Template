@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles"
-import { green, purple } from "@mui/material/colors"
+import { grey } from "@mui/material/colors"
 
 
 // Application Theme || Define Exports
@@ -11,7 +11,7 @@ export const MUITheme = createTheme({
       main: "#d73f40",
     },
     secondary: {
-      main: green[500],
+      main: grey[500],
     },
   },
 })

@@ -57,7 +57,11 @@ export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWi
         <Box>
           <Tooltip title="Open settings">
             <IconButton onClick={handleMenu}>
-              <Avatar alt="VITE" src="https://via.placeholder.com/xxx" />
+              {/* Code illustrating how to fetch from local assets */}
+              <Avatar alt="VITE" src="/vercjames.jpg" />
+
+              {/* Code illustrating how to fetch from an API */}
+              {/*<Avatar alt="VITE" src="https://via.placeholder.com/xxx" />*/}
             </IconButton>
           </Tooltip>
 
