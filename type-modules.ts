@@ -1,6 +1,6 @@
 // Application Assets || File Type Declarations
-// =====================================================================================================================
-// Typescript relies on this file resolve unfamiliar file types ========================================================
+// =================================================================================================
+// Typescript relies on this file resolve unfamiliar file types ====================================
 declare module "*.css";
 declare module "*.sass";
 declare module "*.scss";

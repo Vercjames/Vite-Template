@@ -2,8 +2,8 @@ import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 
 
 // Mobx Controller || Model Definition
-// =====================================================================================================================
-// =====================================================================================================================
+// =================================================================================================
+// =================================================================================================
 export const TaskModel = types.model({
   id: types.number,
   title: types.string,
@@ -12,15 +12,12 @@ export const TaskModel = types.model({
   changeTitle(title: string) {
     self.title = title
   },
-  changeDescription(description: string) {
-    self.description = description
-  },
 }))
 
 
 // Mobx Controller || Interface Exports
-// =====================================================================================================================
-// =====================================================================================================================
+// =================================================================================================
+// =================================================================================================
 export interface ITaskModel extends Instance<typeof TaskModel> { }
 export interface ITaskModelSnapshotIn extends SnapshotIn<typeof TaskModel> { }
 export interface ITaskModelSnapshotOut extends SnapshotOut<typeof TaskModel> { }

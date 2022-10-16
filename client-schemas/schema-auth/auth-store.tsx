@@ -4,8 +4,8 @@ import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 
 
 // Mobx Controller || Model Definition
-// =====================================================================================================================
-// =====================================================================================================================
+// =================================================================================================
+// =================================================================================================
 export const AuthStore = types.model({
   isAuthenticated: types.optional((types.boolean), true),
 }).actions((self: any) => ({
@@ -19,8 +19,8 @@ export const AuthStore = types.model({
 
 
 // Mobx Controller || Interface Exports
-// =====================================================================================================================
-// =====================================================================================================================
+// =================================================================================================
+// =================================================================================================
 export interface IAuthStore extends Instance<typeof AuthStore> { }
 export interface IAuthStoreSnapshotIn extends SnapshotIn<typeof AuthStore> { }
 export interface IAuthStoreSnapshotOut extends SnapshotOut<typeof AuthStore> { }
