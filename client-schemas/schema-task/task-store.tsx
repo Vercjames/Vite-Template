@@ -9,7 +9,7 @@ export const TaskStore = types.model({
   TaskCollection: types.optional(types.array(TaskModel), []),
 }).actions((self: any) => ({
   addTask(title: string, description: string) {
-    self.TaskCollection.push({ title, description })
+    self.TaskCollection.push({ id: self.TaskCollection.length, title, description })
   },
 }))
 
