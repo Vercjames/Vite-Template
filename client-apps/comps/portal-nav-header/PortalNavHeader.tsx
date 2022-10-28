@@ -61,7 +61,7 @@ export const PortalNavHeader = ({ drawerWidth, isMobile, setMobile }: { drawerWi
               <Avatar alt="VITE" src="/vercjames.jpg" />
 
               {/* Code illustrating how to fetch from an API */}
-              {/*<Avatar alt="VITE" src="https://via.placeholder.com/xxx" />*/}
+              {/* <Avatar alt="VITE" src="https://via.placeholder.com/xxx" /> */}
             </IconButton>
           </Tooltip>
 

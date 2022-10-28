@@ -2,20 +2,123 @@
 // =================================================================================================
 // =================================================================================================
 // =================================================================================================
-$colorGrey: #bcbcbc;
-$colorDark: #808080;
-$colorWhite: #ffffff;
-$colorBlack: #000000;
-$colorTransparent: #rgba(0, 0, 0, 0);
+
+$COLORGrey: #bcbcbc;
+$COLORDark: #808080;
+$COLORTransparent: #rgba(0, 0, 0, 0);
+$COLORWhite: #ffffff;
+$COLORBlack: #000000;
+
+
+// Application Styles || Main Variants
+// =================================================================================================
+// Visit: https://material.io/blog/design-material-theme-color to create color pallets =============
+$PRIMARYColor: #D73F40;
+$PRIMARYColors: [
+  #D73F40, // MAIN
+  #a82828, // 900
+  #b83032, // 800
+  #c53639, // 700
+  #D73F40, // 600 MAIN
+  #e64841, // 500
+  #e25658, // 400
+  #d87478, // 300
+  #e59a9d, // 200
+  #f8cdd3, // 100
+  #fcebee, //  50
+];
+
+$SECONDARYColor: #3fd7d7;
+$SECONDARYColors: [
+  #3fd7d7, // MAIN
+  #00675f, // 900
+  #008a8a, // 800
+  #009fa1, // 700
+  #00b4ba, // 600
+  #00c5cc, // 500
+  #00ced1, // 400
+  #3fd7d7, // 300 MAIN
+  #7ce3e1, // 200
+  #b1eeeb, // 100
+  #dff8f7, //  50
+];
+
+// Application Styles || Global Variants
+// =================================================================================================
+// =================================================================================================
+$ERRORColor:  #f44336;
+$ERRORColors: [
+  #f44336,
+  #ef5350,
+  #e53935,
+  #f55a4e,
+  #f2dede,
+  #ebcccc,
+  #ef9a9a,
+  #ef5350,
+];
+
+$WARNINGColor:  #ff9800;
+$WARNINGColors: [
+  #ff9800,
+  #ffa726,
+  #fb8c00,
+  #ffa21a,
+  #fcf8e3,
+  #faf2cc,
+  #ffe0b2,
+  #ffb74d,
+];
+
+$SUCCESSColor:  #4caf50;
+$SUCCESSColors: [
+  #4caf50,
+  #66bb6a,
+  #43a047,
+  #5cb860,
+  #dff0d8,
+  #d0e9c6,
+  #a5d6a7,
+  #66bb6a,
+];
+
+$INFOColor:  #00acc1;
+$INFOColors: [
+  #00acc1,
+  #26c6da,
+  #00acc1,
+  #00d3ee,
+  #d9edf7,
+  #c4e3f3,
+  #b2ebf2,
+  #4dd0e1,
+];
 
 
 // Application Styles || TypeScript Exports
 // =================================================================================================
-// this file must be called xxx.module for Typescript to recognize the Variables ===================
 :export {
-  colorGrey : $colorGrey;
-  colorDark : $colorDark;
-  colorWhite : $colorWhite;
-  colorBlack : $colorBlack;
-  colorTransparent : $colorTransparent;
+  COLORGrey : $COLORGrey;
+  COLORDark : $COLORDark;
+  COLORWhite : $COLORWhite;
+  COLORBlack : $COLORBlack;
+  COLORTransparent : $COLORTransparent;
+
+  // Application Styles || Main Variants
+  // ===============================================================================================
+  PRIMARYColor: $PRIMARYColor;
+  PRIMARYColors: $PRIMARYColors;
+  SECONDARYColor: $SECONDARYColor;
+  SECONDARYColors: $SECONDARYColors;
+
+  // Application Styles || Global Variants
+  // ===============================================================================================
+  ERRORColor: $ERRORColor;
+  ERRORColors: $ERRORColors;
+  WARNINGColor: $WARNINGColor;
+  WARNINGColors: $WARNINGColors;
+  SUCCESSColor: $SUCCESSColor;
+  SUCCESSColors: $SUCCESSColors;
+  INFOColor: $INFOColor;
+  INFOColors: $INFOColors;
 }

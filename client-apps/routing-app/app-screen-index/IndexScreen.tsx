@@ -14,17 +14,12 @@ import "./IndexScreen.scss"
 export const AppIndexScreen = () => {
   return (
     <div className="AppIndexScreen">
-      <Typography variant="h6">
-        Welcome Vercjames' Vite Template!
-
+      <Typography paragraph variant="h6">
+        Welcome to My Vite Template! 😎
       </Typography>
-      <Typography variant="body1">
-        Welcome Vercjames' Vite Template!
-      </Typography>
-      <Typography variant="body1">
-        You can Login via a <span style={{ fontStyle: "italic"}}>fake</span> auth system as I wanted this app to stand alone
+      <Typography paragraph>
+        Feel free to poke around the project because you are now inside a fully structured React application 🥳
       </Typography>
     </div>
   )
 }
-

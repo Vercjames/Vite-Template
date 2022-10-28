@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material/styles"
-import { grey } from "@mui/material/colors"
-
+import colors from "@styles/colors.module.scss"
 
 // Application Theme || Define Exports
 // =================================================================================================
@@ -8,10 +7,22 @@ import { grey } from "@mui/material/colors"
 export const MUITheme = createTheme({
   palette: {
     primary: {
-      main: "#d73f40",
+      main: colors.PRIMARYColor,
     },
     secondary: {
-      main: grey[500],
+      main: colors.SECONDARYColor,
+    },
+    error: {
+      main: colors.ERRORColor,
+    },
+    warning: {
+      main: colors.WARNINGColor,
+    },
+    success: {
+      main: colors.SUCCESSColor,
+    },
+    info: {
+      main: colors.INFOColor,
     },
   },
 })
