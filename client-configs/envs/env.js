@@ -9,7 +9,7 @@ const pjson = require("../../package.json")
 let str = `VITE_VERSION="${pjson.version}"\n`
 process.argv.filter((item, index) => {
   if (index > 1) {
-    let split= item.split("=");
+    let split = item.split("=")
     str += `${split[0]}="${split[1]}"\n`
   }
 })

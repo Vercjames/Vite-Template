@@ -17,9 +17,9 @@
     "env:dev": "node client-configs/envs/env.js VITE_BUILD=dev",
     "env:prod": "node client-configs/envs/env.js VITE_BUILD=prod",
     "env:stage": "node client-configs/envs/env.js VITE_BUILD=stage",
+    "format": "eslint --fix \"./client-**/**/*.{js,jsx,ts,tsx}\"",
+    "linting": "eslint \"./client-**/**/*.{js,jsx,ts,tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:fix": "eslint --fix \"./client-apps/**/*.{js,jsx,ts,tsx,json}\"",
-    "lint": "eslint \"./client-apps/**/*.{js,jsx,ts,tsx,json}\"",
     "preview": "vite preview",
     "build": "vite build"
   },
