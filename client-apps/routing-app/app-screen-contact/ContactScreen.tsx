@@ -9,7 +9,7 @@ import * as Yup from "yup"
 // =================================================================================================
 import "./ContactScreen.scss"
 import colors from "@styles/colors.module.scss"
-import { setDelay } from "@helpers/time"
+import { sleep } from "@helpers/time"
 
 
 // Application Screen || Define Exports
@@ -31,7 +31,7 @@ export const AppContactScreen = () => {
 
   const onFormikSubmission = async (values: any, setSubmitting: any) => {
     console.log("Your Form has submitted with these values: ", values)
-    await setDelay(1000)
+    await sleep(1000)
     setSubmitting(false)
   }
   return (
