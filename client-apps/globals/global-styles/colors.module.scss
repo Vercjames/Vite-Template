@@ -9,7 +9,7 @@ $COLORWhite: #ffffff;
 $COLORBlack: #000000;
 
 
-// Application Styles || Main Variants
+// Application Styles || Main Color
 // =================================================================================================
 // Visit: https://material.io/blog/design-material-theme-color to create color pallets =============
 $PRIMARYColor: #D73F40;
@@ -27,6 +27,9 @@ $PRIMARYColors: [
   #fcebee, //  50
 ];
 
+// Application Styles || Secondary Color
+// =================================================================================================
+// Visit: https://material.io/blog/design-material-theme-color to create color pallets =============
 $SECONDARYColor: #3fd7d7;
 $SECONDARYColors: [
   #3fd7d7, // MAIN
@@ -42,7 +45,7 @@ $SECONDARYColors: [
   #dff8f7, //  50
 ];
 
-// Application Styles || Global Variants
+// Application Styles || MUI Variants
 // =================================================================================================
 // =================================================================================================
 $ERRORColor:  #f44336;
