@@ -1,3 +1,4 @@
+import _ from "lodash"
 import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 
 
@@ -5,12 +6,12 @@ import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 // =================================================================================================
 // =================================================================================================
 export const TaskModel = types.model({
-  id: types.number,
+  id: types.string,
   title: types.string,
   description: types.optional(types.string, ""),
 }).actions((self: any) => ({
-  changeTitle(title: string) {
-    self.title = title
+  set(path: string, value: any) {
+    _.set(self, path, value)
   },
 }))
 

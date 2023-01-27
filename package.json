@@ -24,12 +24,13 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.3",
-    "@mui/material": "^5.10.3",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.6",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
+    "lodash": "^4.17.21",
     "md5": "^2.3.0",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
@@ -40,7 +41,6 @@
     "react-router-dom": "^6.3.0",
     "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.54.5",
-    "uuid": "^9.0.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

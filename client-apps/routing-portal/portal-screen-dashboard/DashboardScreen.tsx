@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, Typography, Card, Grid, Icon, Button } from "@mui/material"
-
+import EditIcon from "@mui/icons-material/Edit"
+import DeleteIcon from "@mui/icons-material/Delete"
 
 // Application Screen || Access State
 // =================================================================================================
@@ -14,6 +15,8 @@ import { observer } from "mobx-react-lite"
 // =================================================================================================
 // =================================================================================================
 import "./DashboardScreen.scss"
+import { SideDrawer } from "@comps/side-drawer/SideDrawer"
+import { FormCRUDTask } from "@comps/form-crud-task/FormCRUDTask"
 import colors from "@styles/colors.module.scss"
 
 
@@ -22,16 +25,32 @@ import colors from "@styles/colors.module.scss"
 // =================================================================================================
 export const PortalDashboardScreen = observer(() => {
   const TaskStore: ITaskStore = MSTContext().TaskStore
+  const [isDrawerOpen, setDrawerOpen] = React.useState<boolean>(false)
+  const [selectedTask, setSelectedTask] = React.useState<ITaskModel | null>(null)
+
+  const onCloseDrawer = () => {
+    setSelectedTask(null)
+    setDrawerOpen(false)
+  }
+
+  const onEditTask = (task: ITaskModel) => {
+    setSelectedTask(task)
+    setDrawerOpen(true)
+  }
 
   return (
-    <div className="PortalDashboardScreen">
+    <Box className="PortalDashboardScreen">
+      <SideDrawer position="right" isDrawerOpen={isDrawerOpen} onCloseDrawer={onCloseDrawer}>
+        <FormCRUDTask selectedTask={selectedTask} closeDrawer={onCloseDrawer} />
+      </SideDrawer>
+
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6">
           Dashboard Screen
         </Typography>
-        <Button variant="contained" onClick={() => TaskStore.addTask(`${TaskStore.TaskCollection.length}`, `description for task: ${TaskStore.TaskCollection.length}`)} disableElevation style={{ minWidth: 150, maxWidth: 150 }}>
+        <Button variant="contained" onClick={() => setDrawerOpen(true)} disableElevation style={{ minWidth: 150, maxWidth: 150 }}>
           <Icon className="material-icons-outlined" style={{ fontSize: 16, marginRight: 10 }}>add</Icon>
-          Add Item
+          Add Task
         </Button>
       </Box>
 
@@ -53,12 +72,12 @@ export const PortalDashboardScreen = observer(() => {
                   Task Title
                 </Typography>
               </Grid>
-              <Grid item xs={8} style={{ fontSize: 12, color: colors.DARK }}>
+              <Grid item xs={6} style={{ fontSize: 12, color: colors.DARK }}>
                 <Typography sx={{ fontWeight: "bold" }}>
                   Task Description
                 </Typography>
               </Grid>
-              <Grid item xs={1} style={{ fontSize: 12, color: colors.DARK, textAlign: "center" }}>
+              <Grid item xs={3} style={{ fontSize: 12, color: colors.DARK, textAlign: "right" }}>
                 <Typography sx={{ fontWeight: "bold" }}>
                   Actions
                 </Typography>
@@ -68,7 +87,7 @@ export const PortalDashboardScreen = observer(() => {
               <Grid container key={index} sx={{ pt: 1 }}>
                 <Grid item xs={1} style={{ fontSize: 12, color: colors.DARK }}>
                   <Typography>
-                    {Task.id}
+                    {Task.id.substring(0, 4)}
                   </Typography>
                 </Grid>
                 <Grid item xs={2} style={{ fontSize: 12, color: colors.DARK }}>
@@ -76,14 +95,17 @@ export const PortalDashboardScreen = observer(() => {
                     {Task.title}
                   </Typography>
                 </Grid>
-                <Grid item xs={8} style={{ fontSize: 12, color: colors.DARK }}>
+                <Grid item xs={6} style={{ fontSize: 12, color: colors.DARK }}>
                   <Typography>
                     {Task.description}
                   </Typography>
                 </Grid>
-                <Grid item xs={1} style={{ fontSize: 12, color: colors.DARK, textAlign: "center" }}>
-                  <Button variant="contained" onClick={() => Task.changeTitle("TEST")} style={{ minWidth: 150, maxWidth: 150 }}>
-                    Change Title
+                <Grid item xs={3} style={{ fontSize: 12, color: colors.DARK, textAlign: "right" }}>
+                  <Button variant="contained" onClick={() => onEditTask(Task)} style={{ minWidth: 150, maxWidth: 150 }}>
+                    <EditIcon />
+                  </Button>
+                  <Button variant="contained" onClick={() => onEditTask(Task)} style={{ minWidth: 150, maxWidth: 150 }}>
+                    <DeleteIcon />
                   </Button>
                 </Grid>
               </Grid>
@@ -91,7 +113,7 @@ export const PortalDashboardScreen = observer(() => {
           </Grid>
         )}
       </Card>
-    </div>
+    </Box>
   )
 })
 

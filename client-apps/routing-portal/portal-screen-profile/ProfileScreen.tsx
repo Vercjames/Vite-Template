@@ -1,5 +1,5 @@
 import React from "react"
-import { Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 
 // Application Screen || Define Imports
@@ -13,7 +13,7 @@ import "./ProfileScreen.scss"
 // =================================================================================================
 export const PortalProfileScreen = () => {
   return (
-    <div className="PortalProfileScreen">
+    <Box className="PortalProfileScreen">
       <Typography variant="h6" sx={{ mb: 2 }}>
         Profile Screen
       </Typography>
@@ -48,7 +48,7 @@ export const PortalProfileScreen = () => {
         eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
         posuere sollicitudin aliquam ultrices sagittis orci a.
       </Typography>
-    </div>
+    </Box>
   )
 }
 

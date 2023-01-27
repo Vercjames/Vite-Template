@@ -38,6 +38,11 @@ export const PortalNavDrawer = ({ drawerWidth, isMobile }: { drawerWidth: number
     return location.pathname.match(`^${route}$`) ? palette.primary.main : palette.text.secondary
   }
 
+  const onLogout = () => {
+    AuthStore.logout()
+    navigate("/logout")
+  }
+
   return (
     <Drawer
       variant="permanent"
@@ -62,11 +67,11 @@ export const PortalNavDrawer = ({ drawerWidth, isMobile }: { drawerWidth: number
           <ListItem key={index} disablePadding>
             {/* The minHeight property is to prevent shrinking since the ListItemText is larger than the ListItemIcon */}
             <ListItemButton onClick={() => navigate(item.route)} sx={{ minHeight: 48 }}>
-              {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
+              {/* Fun little .match(regexp) to make sure Path: "/" doesn't active for every page */}
               <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : "auto", color: isActive(item.route) }}>
                 {item.icon}
               </ListItemIcon>
-              {/* Fun little .match(regexp) to make sure Path: "/" doesnt active for every page */}
+              {/* Fun little .match(regexp) to make sure Path: "/" doesn't active for every page */}
               <ListItemText style={{ color: (location.pathname.match(`^${item.route}$`) ? palette.primary.main : palette.text.secondary) }} sx={{ display: isMobile ? "none" : "static" }}>
                 {item.name}
               </ListItemText>
@@ -80,7 +85,7 @@ export const PortalNavDrawer = ({ drawerWidth, isMobile }: { drawerWidth: number
         <List>
           <ListItem disablePadding>
             {/* The minHeight property is to prevent shrinking since the ListItemText is larger than the ListItemIcon */}
-            <ListItemButton onClick={() => AuthStore.logout()} sx={{ minHeight: 48 }}>
+            <ListItemButton onClick={() => onLogout()} sx={{ minHeight: 48 }}>
               <ListItemIcon sx={{ minWidth: 0, mr: !isMobile ? 3 : "auto" }}>
                 <LogoutIcon />
               </ListItemIcon>

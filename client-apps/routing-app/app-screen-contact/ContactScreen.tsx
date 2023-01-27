@@ -1,5 +1,5 @@
 import React from "react"
-import { Typography, Card, Grid, Button, TextField, InputAdornment, Icon, CircularProgress } from "@mui/material"
+import { Box, Typography, Card, Grid, Button, TextField, InputAdornment, Icon, CircularProgress } from "@mui/material"
 import { Formik } from "formik"
 import * as Yup from "yup"
 
@@ -23,19 +23,20 @@ export const AppContactScreen = () => {
       message: "WOW! Thanks a ton 😉",
     }
   }
+
   const getFormikValidation = () => Yup.object().shape({
     name: Yup.string().required(),
     email: Yup.string().required().email(),
     message: Yup.string().required(),
   })
 
-  const onFormikSubmission = async (values: any, setSubmitting: any) => {
+  const onFormikSubmission = async (values: any) => {
     console.log("Your Form has submitted with these values: ", values)
     await sleep(1000)
-    setSubmitting(false)
   }
+
   return (
-    <div className="AppContactScreen">
+    <Box className="AppContactScreen">
       <Typography paragraph variant="h6">
         Contact Me!
       </Typography>
@@ -46,7 +47,7 @@ export const AppContactScreen = () => {
       <Card sx={{ p: 2 }}>
         <Formik
           initialValues={getInitialValues()}
-          onSubmit={(values, { setSubmitting }) => onFormikSubmission(values, setSubmitting)}
+          onSubmit={(values) => onFormikSubmission(values)}
           validationSchema={getFormikValidation()}
         >
           {({ handleChange, isSubmitting, handleBlur, errors, handleSubmit, values, touched }) => (
@@ -56,10 +57,10 @@ export const AppContactScreen = () => {
                   type="text"
                   name="Name"
                   label="Name"
-                  sx={{ width: "100%" }}
                   value={values.name}
                   onBlur={handleBlur("name")}
                   onChange={handleChange("name")}
+                  fullWidth
                   InputProps={{
                     startAdornment: <InputAdornment position="start">
                       <Icon className="material-icons" style={{ fontSize: 16, marginRight: 10 }}>person</Icon>
@@ -76,10 +77,10 @@ export const AppContactScreen = () => {
                   type="email"
                   name="Email"
                   label="Email"
-                  sx={{ width: "100%" }}
                   value={values.email}
                   onBlur={handleBlur("email")}
                   onChange={handleChange("email")}
+                  fullWidth
                   InputProps={{
                     startAdornment: <InputAdornment position="start">
                       <Icon className="material-icons" style={{ fontSize: 16, marginRight: 10 }}>email</Icon>
@@ -96,10 +97,10 @@ export const AppContactScreen = () => {
                   type="text"
                   name="Message"
                   label="Message"
-                  sx={{ width: "100%" }}
                   value={values.message}
                   onBlur={handleBlur("message")}
                   onChange={handleChange("message")}
+                  fullWidth
                   InputProps={{
                     startAdornment: <InputAdornment position="start">
                       <Icon className="material-icons" style={{ fontSize: 16, marginRight: 10 }}>edit</Icon>
@@ -120,7 +121,7 @@ export const AppContactScreen = () => {
           )}
         </Formik>
       </Card>
-    </div>
+    </Box>
   )
 }
 

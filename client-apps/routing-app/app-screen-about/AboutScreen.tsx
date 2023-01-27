@@ -1,5 +1,5 @@
 import React from "react"
-import { Typography, Grid, Card } from "@mui/material"
+import { Box, Typography, Grid, Card } from "@mui/material"
 
 
 // Application Screen || Define Imports
@@ -23,14 +23,15 @@ export const AppAboutScreen = () => {
   )
 
   return (
-    <div className="AppAboutScreen">
+    <Box className="AppAboutScreen">
       <Typography paragraph variant="h6">
         About the Template
       </Typography>
+
       <Typography paragraph>
         I really wanted to create a Template that's easy to repurpose for another project, while also demoing the frameworks inside.
-
       </Typography>
+
       <Typography paragraph>
         To that end, each page has something special going on to showcase each use case while remaining easy to quickly remove. This page in particular is using a simple grid to list out all the technologies in the project
       </Typography>
@@ -49,7 +50,6 @@ export const AppAboutScreen = () => {
         {renderCard("Formik")}
         {renderCard("Yup")}
       </Grid>
-    </div>
+    </Box>
   )
 }
-

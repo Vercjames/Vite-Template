@@ -1,4 +1,5 @@
 import React from "react"
+import { Box } from "@mui/material"
 import { Route, Routes } from "react-router-dom"
 
 
@@ -45,7 +46,7 @@ export const NavigationRoot = observer(() => {
   const AuthStore: IAuthStore = MSTContext().AuthStore
 
   return (
-    <div className="wrapper">
+    <Box className="wrapper">
       {!AuthStore.isAuthenticated ? (
         <Routes>
           <Route element={<AppLayout />}>
@@ -71,6 +72,6 @@ export const NavigationRoot = observer(() => {
           </Route>
         </Routes>
       )}
-    </div>
+    </Box>
   )
 })

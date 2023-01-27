@@ -8,8 +8,8 @@ import { TaskModel } from "./task-model"
 export const TaskStore = types.model({
   TaskCollection: types.optional(types.array(TaskModel), []),
 }).actions((self: any) => ({
-  addTask(title: string, description: string) {
-    self.TaskCollection.push({ id: self.TaskCollection.length, title, description })
+  createTask(task: {title: string, description: string}) {
+    self.TaskCollection.push({ id: crypto.randomUUID(), title: task.title, description: task.description })
   },
 }))
 

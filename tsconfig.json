@@ -105,6 +105,7 @@
     "client-apps",
     "client-assets",
     "client-configs",
+    "client-schemas",
     "type-modules.ts",
     "vite.config.ts"
   ]

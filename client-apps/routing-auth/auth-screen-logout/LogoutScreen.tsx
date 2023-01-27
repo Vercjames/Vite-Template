@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 
 
 // Application Screen || Define Imports
@@ -21,11 +21,11 @@ export const AuthLogoutScreen = () => {
   }, [AuthStore])
 
   return (
-    <div className="AutLoginScreen">
+    <Box className="AutLoginScreen">
       <Typography variant="h6">
         You have been logged out Successfully
       </Typography>
-    </div>
+    </Box>
   )
 }
 

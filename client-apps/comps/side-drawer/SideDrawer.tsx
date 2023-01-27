@@ -1,25 +1,28 @@
 import React from "react"
-import { Box, Typography } from "@mui/material"
+import { Drawer } from "@mui/material"
 
 
 // Application Screen || Define Imports
 // =================================================================================================
 // =================================================================================================
-import "./IndexScreen.scss"
+import "./SideDrawer.scss"
+
+type Anchor = "top" | "left" | "bottom" | "right";
 
 
 // Application Screen || Define Exports
 // =================================================================================================
 // =================================================================================================
-export const AppIndexScreen = () => {
+export const SideDrawer = (props: { position: Anchor, children: React.ReactNode, onCloseDrawer: any, isDrawerOpen: boolean }) => {
+  const { position, onCloseDrawer, isDrawerOpen } = props
+
   return (
-    <Box className="AppIndexScreen">
-      <Typography paragraph variant="h6">
-        Welcome to My Vite Template! 😎
-      </Typography>
-      <Typography paragraph>
-        Feel free to poke around the project because you are now inside a fully structured React application 🥳
-      </Typography>
-    </Box>
+    <Drawer
+      open={isDrawerOpen}
+      anchor={position}
+      onClose={() => onCloseDrawer()}
+    >
+      {props.children}
+    </Drawer>
   )
 }
