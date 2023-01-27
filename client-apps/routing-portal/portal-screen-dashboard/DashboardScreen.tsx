@@ -38,6 +38,10 @@ export const PortalDashboardScreen = observer(() => {
     setDrawerOpen(true)
   }
 
+  const onDeleteTask = (task: ITaskModel) => {
+    TaskStore.deleteTask(task.id)
+  }
+
   return (
     <Box className="PortalDashboardScreen">
       <SideDrawer position="right" isDrawerOpen={isDrawerOpen} onCloseDrawer={onCloseDrawer}>
@@ -72,12 +76,12 @@ export const PortalDashboardScreen = observer(() => {
                   Task Title
                 </Typography>
               </Grid>
-              <Grid item xs={6} style={{ fontSize: 12, color: colors.DARK }}>
+              <Grid item xs={7} style={{ fontSize: 12, color: colors.DARK }}>
                 <Typography sx={{ fontWeight: "bold" }}>
                   Task Description
                 </Typography>
               </Grid>
-              <Grid item xs={3} style={{ fontSize: 12, color: colors.DARK, textAlign: "right" }}>
+              <Grid item xs={2} style={{ fontSize: 12, color: colors.DARK, textAlign: "center" }}>
                 <Typography sx={{ fontWeight: "bold" }}>
                   Actions
                 </Typography>
@@ -95,16 +99,16 @@ export const PortalDashboardScreen = observer(() => {
                     {Task.title}
                   </Typography>
                 </Grid>
-                <Grid item xs={6} style={{ fontSize: 12, color: colors.DARK }}>
+                <Grid item xs={7} style={{ fontSize: 12, color: colors.DARK }}>
                   <Typography>
                     {Task.description}
                   </Typography>
                 </Grid>
-                <Grid item xs={3} style={{ fontSize: 12, color: colors.DARK, textAlign: "right" }}>
-                  <Button variant="contained" onClick={() => onEditTask(Task)} style={{ minWidth: 150, maxWidth: 150 }}>
+                <Grid item xs={2} style={{ fontSize: 12, color: colors.DARK, textAlign: "center" }}>
+                  <Button variant="contained" onClick={() => onEditTask(Task)} sx={{ marginRight: 2 }}>
                     <EditIcon />
                   </Button>
-                  <Button variant="contained" onClick={() => onEditTask(Task)} style={{ minWidth: 150, maxWidth: 150 }}>
+                  <Button variant="contained" onClick={() => onDeleteTask(Task)}>
                     <DeleteIcon />
                   </Button>
                 </Grid>

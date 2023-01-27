@@ -11,6 +11,9 @@ export const TaskStore = types.model({
   createTask(task: {title: string, description: string}) {
     self.TaskCollection.push({ id: crypto.randomUUID(), title: task.title, description: task.description })
   },
+  deleteTask(taskId: string) {
+    self.TaskCollection = self.TaskCollection.filter((task: any) => task.id !== taskId)
+  },
 }))
 
 
