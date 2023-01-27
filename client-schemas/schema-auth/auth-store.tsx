@@ -7,7 +7,7 @@ import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
 // =================================================================================================
 // =================================================================================================
 export const AuthStore = types.model({
-  isAuthenticated: types.optional((types.boolean), true),
+  isAuthenticated: types.optional((types.boolean), false),
 }).actions((self: any) => ({
   login() {
     self.isAuthenticated = true
