@@ -20,8 +20,12 @@
     "format": "eslint --fix \"./client-**/**/*.{js,jsx,ts,tsx}\"",
     "linting": "eslint \"./client-**/**/*.{js,jsx,ts,tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preview": "vite preview",
-    "build": "vite build"
+    "preview:dev": "yarn env:dev && vite preview",
+    "preview:prod": "yarn env:prod && vite preview",
+    "preview:stage": "yarn env:stage && vite preview",
+    "build:dev": "yarn env:dev && vite build",
+    "build:prod": "yarn env:prod && vite build",
+    "build:stage": "yarn env:stage && vite build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
