@@ -4,8 +4,8 @@ import { types, Instance, SnapshotIn, SnapshotOut, onSnapshot } from "mobx-state
 // Mobx Controller || Root Structure
 // =================================================================================================
 // =================================================================================================
-import { TaskStore } from "../schema-task/task-store"
-import { AuthStore } from "../schema-auth/auth-store"
+import { TaskStore } from "../schema-task/TaskStore"
+import { AuthStore } from "../schema-auth/AuthStore"
 
 
 // Mobx Controller || Root Store Structure

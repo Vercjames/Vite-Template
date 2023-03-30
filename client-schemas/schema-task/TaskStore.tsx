@@ -1,5 +1,5 @@
 import { types, Instance, SnapshotIn, SnapshotOut } from "mobx-state-tree"
-import { TaskModel } from "./task-model"
+import { TaskModel } from "./TaskModel"
 
 
 // Mobx Controller || Model Definition
